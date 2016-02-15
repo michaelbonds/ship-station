@@ -4,20 +4,18 @@
     "type": "Api Wrapper",
     "keywords": ["ship", "shipping", "ship-station", "shipstation", "api", "wrapper"],
     "license": "MIT",
-    "version": "1.0",
     "authors": [
         {
             "name": "Michael Bonds",
             "email": "mbonds1219@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "MichaelB\\ShipStation": "src/"
+            "MichaelB\\ShipStation\\": "src/"
         }
     },
     "require": {
-        "guzzlehttp/guzzle": "^6.1"
+        "guzzlehttp/guzzle": "~6.0"
     }
 }
