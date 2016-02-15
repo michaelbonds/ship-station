@@ -47,7 +47,7 @@ class Orders extends BaseEndpoint
     public function addTag($order_id, $tag_id)
     {
         return $this->post('addTag', [
-            'body' => [
+            'form_params' => [
                 'orderId' => $order_id,
                 'tagId' => $tag_id
             ]
@@ -57,7 +57,7 @@ class Orders extends BaseEndpoint
     public function assignUser($order_ids = [], $user_id = '')
     {
         return $this->post('assignUser', [
-            'body' => [
+            'form_params' => [
                 'orderIds' => $order_ids,
                 'userId' => $user_id
             ]
@@ -65,49 +65,24 @@ class Orders extends BaseEndpoint
     }
 
     /**
-     * @param int                       $order_id
-     * @param string                    $carrier_code
-     * @param string                    $service_code
-     * @param string                    $package_code
-     * @param string                    $confirmation
-     * @param string                    $ship_date
-     * @param Weight|null               $weight
-     * @param Dimensions|null           $dimensions
-     * @param InsuranceOptions|null     $insurance_options
-     * @param InternationalOptions|null $international_options
-     * @param AdvancedOptions|null      $advanced_options
-     * @param bool|false                $test_label
+     * @param Order $order
+     * @param bool  $test
      *
      * @return \GuzzleHttp\Psr7\Response
      */
-    public function createLabelForOrder($order_id, $carrier_code = '', $service_code = '',
-        $package_code = '', $confirmation = '', $ship_date = '', Weight $weight = null, Dimensions $dimensions = null,
-        InsuranceOptions $insurance_options = null, InternationalOptions $international_options = null, AdvancedOptions
-        $advanced_options = null, $test_label = false)
+    public function createLabelForOrder(Order $order, $test = false)
     {
-        return $this->post('createlabelfororder', [
-            'body' => [
-                'orderId'=> $order_id,
-                'carrierCode' => $carrier_code,
-                'serviceCode' => $service_code,
-                'packageCode' => $package_code,
-                'confirmation' => $confirmation,
-                'shipDate' => $ship_date,
-                'weight' => $weight,
-                'dimensions' => $dimensions,
-                'insuranceOptions' => $insurance_options,
-                'internationalOptions' => $international_options,
-                'advancedOptions' => $advanced_options,
-                'testLabel' => $test_label
-            ]
-        ]);
+        $form_params = $order->toArray();
+        $form_params['testLabel'] = $test;
 
+        return $this->post('createlabelfororder', [compact('form_params')]);
     }
 
     /**
      * Create a single order
      *
      * @param Order $order
+     *
      * @return \GuzzleHttp\Psr7\Response
      */
     public function createOrder(Order $order)
