@@ -35,7 +35,7 @@ class Carriers extends BaseEndpoint
      */
     public function addFunds($carrierCode = '', $amount = 0)
     {
-        return $this->post('addfunds', ['body' => compact('carrierCode', 'amount')]);
+        return $this->post('addfunds', ['form_params' => compact('carrierCode', 'amount')]);
     }
 
     /**

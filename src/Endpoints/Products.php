@@ -31,7 +31,7 @@ class Products extends BaseEndpoint
     {
         return $this->put('', [
             'query' => ['id' => $product->productId],
-            'body' => $product->toArray()
+            'form_params' => $product->toArray()
         ]);
     }
 
@@ -43,6 +43,6 @@ class Products extends BaseEndpoint
      */
     public function getList($query = [])
     {
-        return $this->get('', ['body' => $query]);
+        return $this->get('', ['form_params' => $query]);
     }
 }

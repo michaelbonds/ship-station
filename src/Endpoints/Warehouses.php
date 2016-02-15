@@ -26,7 +26,7 @@ class Warehouses extends BaseEndpoint
      */
     public function updateWarehouse(Warehouse $warehouse)
     {
-        return $this->put($warehouse->warehouseId, ['body' => $warehouse->toArray()]);
+        return $this->put($warehouse->warehouseId, ['form_params' => $warehouse->toArray()]);
     }
 
     /**
@@ -36,7 +36,7 @@ class Warehouses extends BaseEndpoint
      */
     public function createWarehouse(Warehouse $warehouse)
     {
-        return $this->post('createwarehouse', ['body' => $warehouse->toArray()]);
+        return $this->post('createwarehouse', ['form_params' => $warehouse->toArray()]);
     }
 
     /**

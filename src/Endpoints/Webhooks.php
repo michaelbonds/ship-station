@@ -20,7 +20,7 @@ class Webhooks extends BaseEndpoint
      */
     public function subscribe($friendly_name = '', $target_url = '', $event = '', $store_id = '')
     {
-        return $this->post('subscribe', ['body' => compact('friendly_name', 'target_url', 'event', 'store_id')]);
+        return $this->post('subscribe', ['form_params' => compact('friendly_name', 'target_url', 'event', 'store_id')]);
     }
 
     /**
