@@ -1,0 +1,16 @@
+syntax-highlighting:
+  enable: true
+  css: syntax.css
+github: [metadata]
+markdown: KramdownPygments
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  default_lang: php
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  input: GFM
+gems:
+  - jekyll-coffeescript
+  - jekyll-paginate

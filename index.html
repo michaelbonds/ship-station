@@ -1,80 +1,102 @@
+---
+Title: ShipStation Api Wrapper
+---
+
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Ship-station by michaelbonds</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>ShipStation by michaelbonds</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Ship-station</h1>
-        <p>A php wrapper for ShipStation&#39;s api.</p>
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <!-- <link rel="stylesheet" href="stylesheets/syntax.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/css/tether.min.css">
+  <meta name="viewport" content="width=device-width">
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
-        <p class="view"><a href="https://github.com/michaelbonds/ship-station">View the Project on GitHub <small>michaelbonds/ship-station</small></a></p>
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAB+UlEQVRoQ+3Y0VHDMBAE0E0FUAJ0QAlQAZQAHdAJQwVAB1ABlEAHQAVABWQW4pmQcaLV3inRZOwvf8iy3p18kjXDnl2zPfNgAvWe0SlDU4a2HIFpyhUCfgTgBsApgEMxOV8AXgBcAeB96MrM0AmA5wrI6sCJOQPwGhFlgaKYwRBGZYCyMCmoKCgbE0ZFQK0wIZQLao0ZULcArmuKhANiOX4LVDN1fA8ALtXGQzsH9AjgXHjR92I9WleGmWWuPwcjfVkY9uOAPoXslDCDYQxlY1zQTyE7KmYMFcK0AjmLIzPF76WqAIwF1plyHPDYvF/u30EJn2W5iQNSi8JOUA6IZftdyFI5nH8tuthtbyq5KqS73XaXKGfKLUe2O1QURFxXqAxQV6gsUDeoTBBRLOn3i01pafFVqyHL+rF6gJINUgdZm9EnABdK57sE1aC4kDNLxSsLxI0l/3ucIyi1SkpjlRoVwkLM3WKOO+dq6u+8NFap0QbQgBma1G5IVcwHAJ7KFq8IaBVTi1Ix7Ld5UViHKUbQaMA/YGZHOvd2MrRtDA/+5WLjgNSqZCTj3yO1ZxO/DzugmvXDRVmYCKglysZEQS1QIUwGKBMVxmSB2E9kl00Ij4RZPaXSvOnDdIuC+7E3f24CNQ9x8AVThoIBbP74lKHmIQ6+YO8yNAdKVHc1voA1wAAAAABJRU5ErkJggg==">
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>ShipStation</h1>
+      <p>A php wrapper for ShipStation&#39;s api.</p>
 
+      <p class="view"><a target="_blank" href="https://github.com/michaelbonds/ship-station">View the Project on GitHub <small>michaelbonds/ship-station</small></a></p>
 
-        <ul>
-          <li><a href="https://github.com/michaelbonds/ship-station/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/michaelbonds/ship-station/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/michaelbonds/ship-station">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a id="endpoints" class="anchor" href="#endpoints" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Endpoints</h3>
+      <ul>
+        <li><a href="https://github.com/michaelbonds/ship-station/zipball/master">Download <strong>ZIP File</strong></a></li>
+        <li><a href="https://github.com/michaelbonds/ship-station/tarball/master">Download <strong>TAR Ball</strong></a></li>
+        <li><a target="_blank" href="https://github.com/michaelbonds/ship-station">View On <strong>GitHub</strong></a></li>
+      </ul>
+    </header>
+    <section>
+      <h3>Endpoints</h3>
+        <div class="row">
+            {% for endpoint in site.data.endpoints %}
+              <div class="col-sm-4">
+                  <p>
+                    <a href data-toggle="modal" data-target="#{{ endpoint.id }}">{{ endpoint.title }}</a>
+                  </p>
+              </div>
+            {% endfor %}
+        </div>
 
-<p><a href="#Carriers">Carriers</a></p>
+        <hr>
 
-<p><a href="#Customers">Customers</a></p>
+        <h3>Models</h3>
+        <div class="row">
+          {% for model in site.data.models %}
+            <div class="col-sm-4">
+              <p>
+                <a href data-toggle="modal" data-target="#{{ model.id }}">{{ model.name }}</a>
+              </p>
+            </div>
+          {% endfor %}
+        </div>
 
-<p><a href="#Orders">Orders</a></p>
+        <!-- Endpoint Modals -->
+        {% for endpoint in site.data.endpoints %}
+          <div class="modal fade" id="{{ endpoint.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">{{ endpoint.title}}</h4>
+                </div>
+                <div class="modal-body">
+                  {{ endpoint.file | endpoint }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
 
-<p><a href="#Products">Products</a></p>
+        <!-- Model Modals -->
+        {% for model in site.data.models %}
+          <div class="modal fade" id="{{ model.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">{{ model.name }}</h4>
+                </div>
+                <div class="modal-body">
+                  {{ model.file | model }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
 
-<p><a href="#Shipments">Shipments</a></p>
-
-<p><a href="#Stores">Stores</a></p>
-
-<p><a href="#Users">Users</a></p>
-
-<p><a href="#WareHouses">Warehouses</a></p>
-
-<p><a href="#Webhooks">Webhooks</a></p>
-
-<h4>
-<a id="carriers" class="anchor" href="#carriers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Carriers</h4>
-
-<h4>
-<a id="customers" class="anchor" href="#customers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customers</h4>
-
-<h4>
-<a id="orders" class="anchor" href="#orders" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Orders</h4>
-
-<h4>
-<a id="products" class="anchor" href="#products" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Products</h4>
-
-<h4>
-<a id="shipments" class="anchor" href="#shipments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shipments</h4>
-
-<h4>
-<a id="stores" class="anchor" href="#stores" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stores</h4>
-
-<h4>
-<a id="users" class="anchor" href="#users" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Users</h4>
-
-<h4>
-<a id="warehouses" class="anchor" href="#warehouses" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warehouses</h4>
-
-<h4>
-<a id="webhooks" class="anchor" href="#webhooks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Webhooks</h4>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/michaelbonds">michaelbonds</a></p>
@@ -82,16 +104,23 @@
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-63433150-3");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-63433150-3");
+      pageTracker._trackPageview();
+    } catch(err) {}
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 
+    <script>
+    $('pre').addClass('prettyprint');
+    </script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
   </body>
 </html>
