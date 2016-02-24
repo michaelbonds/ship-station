@@ -65,17 +65,16 @@ class Orders extends BaseEndpoint
     }
 
     /**
-     * @param Order $order
-     * @param bool  $test
+     * @param array $form_params
      *
      * @return \GuzzleHttp\Psr7\Response
+     * @internal param Order $order
+     * @internal param bool $test
+     *
      */
-    public function createLabelForOrder(Order $order, $test = false)
+    public function createLabelForOrder($form_params = [])
     {
-        $form_params = $order->toArray();
-        $form_params['testLabel'] = $test;
-
-        return $this->post('createlabelfororder', [compact('form_params')]);
+        return $this->post('createlabelfororder', compact('form_params'));
     }
 
     /**
