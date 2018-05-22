@@ -43,6 +43,6 @@ class Products extends BaseEndpoint
      */
     public function getList($query = [])
     {
-        return $this->get('', ['form_params' => $query]);
+        return $this->get('', ['query' => $query]);
     }
 }
