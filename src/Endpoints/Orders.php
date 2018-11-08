@@ -79,6 +79,20 @@ class Orders extends BaseEndpoint
     }
 
     /**
+     * @param Order $order
+     * @param bool  $test
+     *
+     * @return \GuzzleHttp\Psr7\Response
+     */
+    public function createLabelForOrder2($params)
+    {
+
+        return $this->post('createlabelfororder', [
+            'form_params' => $params
+        ]);
+    }
+
+    /**
      * Create a single order
      *
      * @param Order $order

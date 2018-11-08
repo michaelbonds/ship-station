@@ -1,5 +1,5 @@
 {
-    "name": "michaelb/ship-station",
+    "name": "aydoganserdar/ship-station",
     "description": "A php wrapper for ship station's api",
     "type": "Api Wrapper",
     "keywords": ["ship", "shipping", "ship-station", "shipstation", "api", "wrapper"],
